@@ -1,0 +1,27 @@
+<?php 
+
+
+$servername = "localhost";
+$username="root";
+$password="";
+$dbname = "prasanthdb";
+
+$con = new mysqli($servername,$username,$password,$dbname);
+
+if($con->connect_error){ 
+	die ("connection unsuccessful".$con->connect_error);
+		}
+
+
+$alter = "ALTER TABLE websitename ADD COLUMN foreignkey INT(5)";
+
+
+if($con->query($alter)===TRUE){
+	//header("Location:displaydbdata.php ");
+}else{
+	echo 'error deleting the selected row'.$con->error;}
+
+$con->close();
+
+
+?>
